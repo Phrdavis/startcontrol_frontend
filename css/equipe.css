@@ -29,7 +29,7 @@ body {
     box-sizing: border-box;
 }
 
-.badge-startup{
+.badge-equipe{
     padding: 0.25em 0.5em;
     border-radius: 0.5rem;
     width: 1em;
@@ -37,11 +37,11 @@ body {
     display: inline-block;
 }
 
-.badge-startup-success{
+.badge-equipe-success{
     background-color: #28a745;
 }
 
-.badge-startup-danger{
+.badge-equipe-danger{
     background-color: #dc3545;
 }
 #alert{
@@ -52,4 +52,22 @@ body {
     transform: translate(-50%);
     width: auto;
 
+}
+
+
+.status-user{
+
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    display: block;
+
+}
+
+.status-user-ativo{
+    background-color: #28a745;
+}
+
+.status-user-inativo{
+    background-color: #dc3545;
 }

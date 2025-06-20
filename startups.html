@@ -34,12 +34,91 @@
 
             </div>
             <hr>
-            <div id="startups-container">
+            <div id="startups-container"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes da Startup -->
+    <div class="modal fade" id="startupDetailModal" tabindex="-1" aria-labelledby="startupDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="startupDetailModalLabel">Detalhes da Startup</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">Nome</dt>
+                        <dd class="col-sm-8" id="startup-nome"></dd>
+
+                        <dt class="col-sm-4">CNPJ</dt>
+                        <dd class="col-sm-8" id="startup-cnpj"></dd>
+
+                        <dt class="col-sm-4">Área de Atuação</dt>
+                        <dd class="col-sm-8" id="startup-area"></dd>
+
+                        <dt class="col-sm-4">Ativo</dt>
+                        <dd class="col-sm-8" id="startup-ativo"></dd>
+
+                        <dt class="col-sm-4">Responsável</dt>
+                        <dd class="col-sm-8" id="startup-responsavel"></dd>
+
+                        <dt class="col-sm-4">E-mail</dt>
+                        <dd class="col-sm-8" id="startup-email"></dd>
+                    </dl>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS + Icons -->
+    <!-- Modal de Inclusão/Edição de Startup -->
+    <div class="modal fade" id="addEditStartupModal" tabindex="-1" aria-labelledby="addEditStartupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="add-edit-startup-form" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEditStartupModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="startup-id-input" name="id">
+                    <div class="mb-3">
+                        <label for="startup-nome-input" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="startup-nome-input" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="startup-cnpj-input" class="form-label">CNPJ</label>
+                        <input type="text" class="form-control" id="startup-cnpj-input" name="cnpj" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="startup-area-input" class="form-label">Área de Atuação</label>
+                        <input type="text" class="form-control" id="startup-area-input" name="areaAtuacao" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="startup-ativo-input" class="form-label">Ativo</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="startup-ativo-input" name="ativo">
+                            <label class="form-check-label" for="startup-ativo-input">Ativo/Inativo</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="startup-responsavel-input" class="form-label">Responsável</label>
+                        <select class="form-select" id="startup-responsavel" name="responsavel" required>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="save-startup-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="alert"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="js/navbar.js"></script>
