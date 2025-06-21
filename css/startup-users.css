@@ -1,0 +1,55 @@
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+.sidebar {
+    min-width: 220px;
+    max-width: 220px;
+    min-height: 100vh;
+    background: #343a40;
+    color: #fff;
+}
+.sidebar .nav-link {
+    color: #adb5bd;
+}
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+    color: #fff;
+    background: #495057;
+}
+.sidebar .nav-link i {
+    margin-right: 8px;
+}
+.content {
+    padding: 32px;
+}
+
+.content{
+    height: 100vh;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.badge-startup{
+    padding: 0.25em 0.5em;
+    border-radius: 0.5rem;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+
+.badge-startup-success{
+    background-color: #28a745;
+}
+
+.badge-startup-danger{
+    background-color: #dc3545;
+}
+#alert{
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: auto;
+
+}

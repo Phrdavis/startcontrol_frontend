@@ -75,7 +75,7 @@
             <div class="dropup">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://api.dicebear.com/9.x/dylan/svg?seed=${encodeURIComponent(userName)}" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>${userName}</strong>
+                    <strong>${abreviarSobrenome(userName)}</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser">
                     <li><a class="dropdown-item" id="exit-btn">Sair</a></li>
@@ -99,6 +99,21 @@
     if (!user) {
         window.location.href = 'index.html';
         return;
+    }
+
+    function abreviarSobrenome(nomeCompleto) {
+        if (!nomeCompleto) return '';
+        const partes = nomeCompleto.trim().split(/\s+/);
+        if (partes.length < 3) return nomeCompleto;
+        // Considera o primeiro nome, o último sobrenome e abrevia o(s) do meio
+        const primeiroNome = partes[0];
+        const ultimoSobrenome = partes[partes.length - 1];
+        const doMeio = partes.slice(1, -1).map(p => {
+            // Não abrevia preposições comuns
+            if (['de', 'da', 'do', 'das', 'dos'].includes(p.toLowerCase())) return p;
+            return p[0].toUpperCase() + '.';
+        });
+        return [primeiroNome, ...doMeio, ultimoSobrenome].join(' ');
     }
 
     document.getElementById('sidebar-component').innerHTML = sidebarHTML;

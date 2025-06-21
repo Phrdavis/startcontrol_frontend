@@ -37,8 +37,9 @@ $(document).ready(function () {
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item fw-bolder item-view" href="#" data-startup='${JSON.stringify(startup)}'>Ver Startup</a></li>
+                                        <li><a class="dropdown-item fw-bolder item-view" href="#" data-startup='${JSON.stringify(startup)}'>Visualizar</a></li>
                                         <li><a class="dropdown-item fw-bolder item-alter" href="#">Alterar</a></li>
+                                        <li><a class="dropdown-item fw-bolder item-users" href="startup-users.html?id=${startup.id}">Usuarios</a></li>
                                         <hr>
                                         <li><a class="dropdown-item fw-bolder text-danger item-delete" href="#" data-startup='${JSON.stringify(startup)}'>Excluir</a></li>
                                     </ul>
