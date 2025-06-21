@@ -16,7 +16,11 @@ $(document).ready(function () {
     const $container = $('<div class="container mt-4"></div>');
     $('#startups-container').append($container);
 
-    $.get('http://localhost:6060/api/startups')
+    // Recupera o usuário logado do localStorage
+    const usuario = JSON.parse(localStorage.getItem('user') || '{}');
+    const usuarioId = usuario && usuario.id ? usuario.id : null;
+
+    $.get('http://localhost:6060/api/startups', { usuarioId })
         .done(function (data) {
             const $row = $('<div class="row g-4"></div>');
 
@@ -25,11 +29,18 @@ $(document).ready(function () {
                     ? '<span class="ms-2 me-3 mt-3 badge-startup-success badge-startup rounded-circle"></span>'
                     : '<span class="ms-2 me-3 mt-3 badge-startup-danger badge-startup rounded-circle"></span>';
 
+                let menuOptions = `
+                    <li><a class="dropdown-item fw-bolder item-view" href="#" data-startup='${JSON.stringify(startup)}'>Visualizar</a></li>
+                    <li><a class="dropdown-item fw-bolder item-alter" href="#">Alterar</a></li>
+                    <li><a class="dropdown-item fw-bolder item-users" href="startup-users.html?id=${startup.id}">Usuarios</a></li>
+                    <hr>
+                    <li><a class="dropdown-item fw-bolder text-danger item-delete" href="#" data-startup='${JSON.stringify(startup)}'>Excluir</a></li>
+                `;
+
                 const $col = $(`
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-lg border-0 rounded-4 transition-transform" style="transition: transform 0.2s;">
                             <div class="card-header bg-gradient bg-dark text-white rounded-top-4 d-flex align-items-center justify-content-between">
-                                
                                 <h5 class="mb-2 fw-bold">${ativoBadge}${startup.nome || 'Sem nome'}</h5>
                                 <input type="hidden" class="startup-id-input" value="${startup.id}">
                                 <div class="dropdown ms-2">
@@ -37,11 +48,7 @@ $(document).ready(function () {
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item fw-bolder item-view" href="#" data-startup='${JSON.stringify(startup)}'>Visualizar</a></li>
-                                        <li><a class="dropdown-item fw-bolder item-alter" href="#">Alterar</a></li>
-                                        <li><a class="dropdown-item fw-bolder item-users" href="startup-users.html?id=${startup.id}">Usuarios</a></li>
-                                        <hr>
-                                        <li><a class="dropdown-item fw-bolder text-danger item-delete" href="#" data-startup='${JSON.stringify(startup)}'>Excluir</a></li>
+                                        ${menuOptions}
                                     </ul>
                                 </div>
                             </div>
@@ -64,7 +71,6 @@ $(document).ready(function () {
                     </div>
                 `);
 
-                // Efeito hover moderno
                 $col.find('.card').hover(
                     function () { $(this).css('transform', 'scale(1.03)'); },
                     function () { $(this).css('transform', 'scale(1)'); }
@@ -267,6 +273,39 @@ $(document).ready(function () {
 
     }
 
+
+    const listElements = [
+        '#add-startup-btn',
+        '.item-alter',
+        '.item-delete'
+    ]
+
+    function esconderSeNaoAdmin(selector) {
+        const usuario = JSON.parse(localStorage.getItem('user') || '{}');
+        if (!usuario || usuario.tipo !== 'ADMIN') {
+            // Usa event delegation para esconder elementos dinâmicos
+            const observer = new MutationObserver(function(mutationsList) {
+                mutationsList.forEach(function(mutation) {
+                    $(selector).each(function() {
+                        $(this).hide();
+                    });
+                });
+            });
+            // Observa mudanças no container principal
+            const container = document.getElementById('startups-container');
+            if (container) {
+                observer.observe(container, { childList: true, subtree: true });
+            }
+            // Esconde elementos já existentes
+            $(selector).each(function() {
+                $(this).hide();
+            });
+        }
+    }
+
+    listElements.forEach(function(selector) {
+        esconderSeNaoAdmin(selector);
+    });
 
     carregarUsuariosNoSelect();
 

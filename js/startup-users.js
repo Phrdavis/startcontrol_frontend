@@ -250,6 +250,41 @@ $(document).ready( async function() {
             }
         });
     });
+    
+
+
+    const listElements = [
+        '#add-startup-user-btn',
+        '.btn-remove-user',
+        '.modal-footer'
+    ]
+
+    function esconderSeNaoAdmin(selector) {
+        const usuario = JSON.parse(localStorage.getItem('user') || '{}');
+        if (!usuario || usuario.tipo !== 'ADMIN') {
+            // Usa event delegation para esconder elementos dinâmicos
+            const observer = new MutationObserver(function(mutationsList) {
+                mutationsList.forEach(function(mutation) {
+                    $(selector).each(function() {
+                        $(this).hide();
+                    });
+                });
+            });
+            // Observa mudanças no container principal
+            const container = document.getElementById('equipe-container');
+            if (container) {
+                observer.observe(container, { childList: true, subtree: true });
+            }
+            // Esconde elementos já existentes
+            $(selector).each(function() {
+                $(this).hide();
+            });
+        }
+    }
+
+    listElements.forEach(function(selector) {
+        esconderSeNaoAdmin(selector);
+    });
 
     carregarTodosUsuarios()
     carregarUsuarios()
