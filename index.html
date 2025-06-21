@@ -21,8 +21,78 @@
             <input type="email" id="email" placeholder="E-mail" required>
             <input type="password" id="senha" placeholder="Senha" required>
             <button type="submit" class="login-btn">Entrar</button>
+            <a class="link-forget-password" href="#">Esqueceu sua senha?</a>
+            <p class="login-cadastro">Não tem uma conta? <a href="#">Cadastre-se</a></p>
         </form>
     </div>
+    <div class="login-footer">
+        <p>&copy; 2025 StartControl.</p>
+    </div>
     <div id="alert"></div>
+
+    <!-- Modal Recuperação de Senha -->
+    <div class="modal fade" id="recuperarSenhaModal" tabindex="-1" aria-labelledby="recuperarSenhaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="me-2">
+                        <img src="https://img.icons8.com/?size=30&id=AYgo4AkFzkV9&format=png&color=000000" alt="Janela Privada" />
+                    </span>
+                    <h5 class="modal-title" id="recuperarSenhaModalLabel">Recuperar Senha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="recuperarSenhaForm">
+                        <div class="mb-3">
+                            <label for="recuperarEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="recuperarEmail" placeholder="Digite seu e-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="novaSenha" class="form-label">Nova Senha</label>
+                            <input type="password" class="form-control" id="novaSenha" placeholder="Digite a nova senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-4">Recuperar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro de Usuário -->
+    <div class="modal fade" id="cadastroUsuarioModal" tabindex="-1" aria-labelledby="cadastroUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="me-2">
+                        <img src="https://img.icons8.com/ios-filled/30/2980b9/add-user-group-man-man.png" alt="Cadastro Usuário" />
+                    </span>
+                    <h5 class="modal-title" id="cadastroUsuarioModalLabel">Cadastrar Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="cadastroUsuarioForm">
+                        <div class="mb-3">
+                            <label for="cadastroNome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="cadastroNome" placeholder="Digite o nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cadastroEmail" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="cadastroEmail" placeholder="Digite o e-mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cadastroSenha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="cadastroSenha" placeholder="Digite a senha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cadastroTipo" class="form-label">Tipo</label>
+                            <input type="text" class="form-control" id="cadastroTipo" value="USUARIO" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mt-3">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

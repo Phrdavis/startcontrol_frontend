@@ -81,3 +81,47 @@ body {
     width: auto;
 
 }
+
+.link-forget-password {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+.login-footer{
+    position: fixed;
+    align-items: center;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-footer p{
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+.login-cadastro{
+    text-align: center;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        max-width: 100vw;
+        width: 100vw;
+        min-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 2rem 2.4rem;
+        justify-content: center;
+    }
+    body {
+        align-items: flex-start;
+    }
+}
