@@ -20,7 +20,7 @@ $(document).ready(function () {
     const usuario = JSON.parse(localStorage.getItem('user') || '{}');
     const usuarioId = usuario && usuario.id ? usuario.id : null;
 
-    $.get('http://localhost:6060/api/startups', { usuarioId })
+    $.get(`http://localhost:6060/api/startups?usuarioId=${usuarioId}`)
         .done(function (data) {
             const $row = $('<div class="row g-4"></div>');
 

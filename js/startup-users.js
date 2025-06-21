@@ -261,7 +261,8 @@ $(document).ready( async function() {
 
     function esconderSeNaoAdmin(selector) {
         const usuario = JSON.parse(localStorage.getItem('user') || '{}');
-        if (!usuario || usuario.tipo !== 'ADMIN') {
+        console.log(usuario, startup)
+        if (usuario && (usuario.tipo !== 'ADMIN' && startup.responsavel.id != usuario.id)) {
             // Usa event delegation para esconder elementos dinâmicos
             const observer = new MutationObserver(function(mutationsList) {
                 mutationsList.forEach(function(mutation) {

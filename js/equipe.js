@@ -22,9 +22,12 @@ $(document).ready(function() {
         });
     });
 
+    const usuario = JSON.parse(localStorage.getItem('user') || '{}');
+    const usuarioId = usuario && usuario.id ? usuario.id : null;
+    
     function carregarUsuarios() {
         $.ajax({
-            url: 'http://localhost:6060/api/usuarios',
+            url: `http://localhost:6060/api/usuarios?usuarioId=${usuarioId}`,
             method: 'GET',
             dataType: 'json',
             success: function(usuarios) {
