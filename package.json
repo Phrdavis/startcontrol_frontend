@@ -1,0 +1,14 @@
+{
+  "name": "startcontrol_frontend",
+  "version": "1.0.0",
+  "description": "Sistema para controle e gestão de startups, projetos e equipes.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --open=index.html"
+  },
+  "author": "StartControl Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
