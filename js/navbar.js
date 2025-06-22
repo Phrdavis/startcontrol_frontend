@@ -19,27 +19,14 @@
             isActive: currentPage === "equipe.html",
             disabled: false
         },
-        // {
-        //     icon: "bi-bar-chart",
-        //     label: "Relatórios",
-        //     link: "#",
-        //     isActive: false,
-        //     disabled: true
-        // },
-        // {
-        //     icon: "bi-gear",
-        //     label: "Configurações",
-        //     link: "#",
-        //     isActive: false,
-        //     disabled: true
-        // },
-        // {
-        //     icon: "bi-question-circle",
-        //     label: "Ajuda",
-        //     link: "#",
-        //     isActive: false,
-        //     disabled: true
-        // }
+        {
+            icon: "bi-award",
+            icon_active: "bi-award-fill",
+            label: "Projetos",
+            link: "projetos.html",
+            isActive: currentPage === "projetos.html",
+            disabled: false
+        }
     ];
 
     let sidebarHTML = `
