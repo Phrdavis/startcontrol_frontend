@@ -122,7 +122,7 @@ $(document).ready(function () {
         const $card = $(this).closest('.card');
         const startupData = $card.find('.item-view').data('startup');
         if (!startupData || !startupData.id) {
-            alert('ID da startup não encontrado.');
+            appendAlert('ID da startup não encontrado.', 'danger'); 
             return;
         }
         if (confirm(`Tem certeza que deseja excluir a startup "${startupData.nome}"?`)) {
@@ -134,7 +134,7 @@ $(document).ready(function () {
                     appendAlert('Startup excluída com sucesso.', 'success'); 
                 },
                 error: function (data) {
-                    appendAlert(data.erro, 'success'); 
+                    appendAlert(data.responseJSON.erro, 'danger'); 
                 }
             });
         }

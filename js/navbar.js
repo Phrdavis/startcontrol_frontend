@@ -4,6 +4,14 @@
 
     const sidebarItems = [
         {
+            icon: "bi-bar-chart",
+            icon_active: "bi-bar-chart-fill",
+            label: "Dashboard",
+            link: "dashboard.html",
+            isActive: currentPage === "dashboard.html",
+            disabled: false
+        },
+        {
             icon: "bi-lightbulb",
             icon_active: "bi-lightbulb-fill",
             label: "Startups",
@@ -20,13 +28,13 @@
             disabled: false
         },
         {
-            icon: "bi-award",
-            icon_active: "bi-award-fill",
+            icon: "bi-kanban",
+            icon_active: "bi-kanban-fill",
             label: "Projetos",
             link: "projetos.html",
             isActive: currentPage === "projetos.html",
             disabled: false
-        }
+        },
     ];
 
     let sidebarHTML = `

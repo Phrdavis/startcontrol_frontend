@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "apexcharts": "^4.7.0"
   }
 }

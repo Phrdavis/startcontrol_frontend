@@ -42,6 +42,7 @@
                             <th>Nome</th>
                             <th>Descrição</th>
                             <th>Responsável</th>
+                            <th>Startup</th>
                             <th>Status</th>
                             <th>Ações</th>
                         </tr>
@@ -50,6 +51,56 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal de Adicionar/Editar Projeto -->
+    <div class="modal fade" id="projetoModal" tabindex="-1" aria-labelledby="projetoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="projetoForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="projetoModalLabel">Adicionar/Editar Projeto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3 modal_id">
+                            <label for="projeto_id" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="projeto_id" name="id" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projeto_nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="projeto_nome" name="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projeto_descricao" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="projeto_descricao" name="descricao" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projeto_responsavel" class="form-label">Responsável</label>
+                            <select class="form-select" id="projeto_responsavel" name="responsavel" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projeto_startup" class="form-label">Startup</label>
+                            <select class="form-select" id="projeto_startup" name="startup" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projeto_status" class="form-label">Status</label>
+                            <select class="form-select" id="projeto_status" name="status" required>
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 

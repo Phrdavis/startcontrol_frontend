@@ -1,0 +1,39 @@
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+.sidebar {
+    min-width: 220px;
+    max-width: 220px;
+    min-height: 100vh;
+    background: #343a40;
+    color: #fff;
+}
+.sidebar .nav-link {
+    color: #adb5bd;
+}
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+    color: #fff;
+    background: #495057;
+}
+.sidebar .nav-link i {
+    margin-right: 8px;
+}
+.content {
+    padding: 32px;
+}
+
+.content{
+    height: 100vh;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.dashboard-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.dashboard-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(52, 58, 64, 0.15);
+}
