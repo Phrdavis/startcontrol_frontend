@@ -29,7 +29,7 @@ body {
     box-sizing: border-box;
 }
 
-.badge-startup{
+.badge-incubadora{
     padding: 0.25em 0.5em;
     border-radius: 0.5rem;
     width: 1em;
@@ -37,11 +37,11 @@ body {
     display: inline-block;
 }
 
-.badge-startup-success{
+.badge-incubadora-success{
     background-color: #28a745;
 }
 
-.badge-startup-danger{
+.badge-incubadora-danger{
     background-color: #dc3545;
 }
 #alert{
@@ -63,7 +63,7 @@ body {
 .dropdown .btn .icon{
     font-size: 25px;
 }
-.startup-card {
+.incubadora-card {
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -75,35 +75,35 @@ body {
     margin-right: auto;
 }
 
-.startup-card-header {
+.incubadora-card-header {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.startup-card-header h4 {
+.incubadora-card-header h4 {
     font-size: 1.5rem;
     margin-top: 10px;
 }
 
-.startup-card-header i {
+.incubadora-card-header i {
     font-size: 40px;
     color: #007bff;
 }
 
-.startup-card-body p {
+.incubadora-card-body p {
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #6c757d;
 }
 
-.startup-card-footer {
+.incubadora-card-footer {
     border-top: 1px solid #f0f0f0;
     margin-top: 15px;
     padding-top: 10px;
     text-align: center;
 }
 
-.startup-card-footer span {
+.incubadora-card-footer span {
     font-weight: bold;
     color: #007bff;
 }

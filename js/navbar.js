@@ -4,11 +4,19 @@
 
     const sidebarItems = [
         {
-            icon: "bi-bar-chart",
-            icon_active: "bi-bar-chart-fill",
+            icon: "bi bi-graph-up",
+            icon_active: "bi bi-graph-up-arrow",
             label: "Dashboard",
             link: "dashboard.html",
             isActive: currentPage === "dashboard.html",
+            disabled: false
+        },
+        {
+            icon: "bi bi-buildings",
+            icon_active: "bi bi-buildings-fill",
+            label: "Incubadoras",
+            link: "incubadoras.html",
+            isActive: currentPage === "incubadoras.html",
             disabled: false
         },
         {

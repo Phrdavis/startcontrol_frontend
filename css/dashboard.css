@@ -37,3 +37,25 @@ body {
     transform: translateY(-4px) scale(1.03);
     box-shadow: 0 8px 24px rgba(52, 58, 64, 0.15);
 }
+
+.incubadora{
+    box-sizing: border-box;
+}
+
+.incubadora .startups{
+
+    font-size: 12px; /* Tamanho da fonte */
+
+}
+
+
+.tag {
+    display: inline-block; /* Garante que a tag seja um bloco em linha */
+    background-color: #f8f9fa; /* Cor de fundo suave */
+    font-size: 10px;
+    padding: 3px 6px; /* Espaçamento interno */
+    border-radius: 30px; /* Borda arredondada */
+    font-weight: bold; /* Texto em negrito */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    transition: all 0.3s ease; /* Transição suave para efeitos de hover */
+}

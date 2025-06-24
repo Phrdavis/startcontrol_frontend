@@ -26,8 +26,8 @@ $(document).ready(function () {
 
             data.forEach(function (startup) {
                 const ativoBadge = startup.ativo
-                    ? '<span class="ms-2 me-3 mt-3 badge-startup-success badge-startup rounded-circle"></span>'
-                    : '<span class="ms-2 me-3 mt-3 badge-startup-danger badge-startup rounded-circle"></span>';
+                    ? '<span class="ms-2 me-2 badge-startup-success badge-startup rounded-circle"></span>'
+                    : '<span class="ms-2 me-2 badge-startup-danger badge-startup rounded-circle"></span>';
 
                 let menuOptions = `
                     <li><a class="dropdown-item fw-bolder item-view" href="#" data-startup='${JSON.stringify(startup)}'>Visualizar</a></li>
@@ -38,35 +38,31 @@ $(document).ready(function () {
                 `;
 
                 const $col = $(`
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-lg border-0 rounded-4 transition-transform" style="transition: transform 0.2s;">
-                            <div class="card-header bg-gradient bg-dark text-white rounded-top-4 d-flex align-items-center justify-content-between">
-                                <h5 class="mb-2 fw-bold">${ativoBadge}${startup.nome || 'Sem nome'}</h5>
-                                <input type="hidden" class="startup-id-input" value="${startup.id}">
-                                <div class="dropdown ms-2">
-                                    <button class="btn btn-sm btn-light rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        ${menuOptions}
-                                    </ul>
-                                </div>
+                    
+                    <div class="card startup-card">
+                        <div class="startup-card-header position-relative">
+                            <i class="text-${startup.incubadora?.color || 'primary'} ${startup.incubadora?.icon || 'bi bi-briefcase'}"></i>
+                            <h4>${ativoBadge}${startup.nome || 'Sem nome'}</h4>
+                            <input type="hidden" class="startup-id-input" value="${startup.id}">
+                            <div class="dropdown ms-2">
+                                <button class="btn btn-sm btn-light rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="icon text-dark bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    ${menuOptions}
+                                </ul>
                             </div>
-                            <div class="card-body d-flex flex-column">
-                                <div class="mb-3">
-                                    <span class="text-muted small"><i class="bi bi-briefcase"></i> Área:</span>
-                                    <span class="fw-semibold">${startup.areaAtuacao || 'Não informada'}</span>
-                                </div>
-                                <div class="mb-3">
-                                    <span class="text-muted small"><i class="bi bi-upc-scan"></i> CNPJ:</span>
-                                    <span class="fw-semibold cnpj">${startup.cnpj || 'Não informado'}</span>
-                                </div>
-                                <hr>
-                                <div class="mb-2">
-                                    <span class="text-muted small"><i class="bi bi-person-circle"></i> Responsável:</span>
-                                    <span class="fw-semibold startup-responsavel">${startup.responsavel?.nome || 'Não informado'}</span>
-                                </div>
-                            </div>
+                            <span class="tag bg-opacity-25 bg-${startup.incubadora?.color || 'danger'} text-${startup.incubadora?.color || 'danger'}">
+                                ${startup.incubadora?.tag || 'N/A'}
+                            </span>
+                        </div>
+
+                        <!-- Corpo do Card -->
+                        <div class="startup-card-body">
+                            <p><strong>CNPJ:</strong> ${startup.cnpj || 'Não informado'}</p>
+                            <p><strong>Área de Atuação:</strong> ${startup.areaAtuacao || 'Não informada'}</p>
+                            <p><strong>Responsável:</strong> ${startup.responsavel?.nome || 'Não informado'}</p>
+                            <p><strong>Incubadora:</strong> ${startup.incubadora?.nome || 'Não informado'}</p>
                         </div>
                     </div>
                 `);
